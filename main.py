@@ -93,6 +93,7 @@ class WeatherApp(QWidget):
         
         try:
             response = requests.get(url)
+            response.raise_for_status() # normally our try block don't auto raise the HTTPError kind of exceptions so raise_for_status() method raises this exception if there is this exception
             data = response.json()
             
             if data['cod'] == 200: # cod is named for response code so 200 response code means OK
