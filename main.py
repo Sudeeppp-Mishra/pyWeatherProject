@@ -91,13 +91,15 @@ class WeatherApp(QWidget):
         city = self.city_input.text()
         url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}"
         
-        response = requests.get(url)
-        data = response.json()
-        
-        if data['cod'] == 200: # cod is named for response code so 200 response code means OK
-            self.display_weather(data)
-        else:
-            print(data)
+        try:
+            response = requests.get(url)
+            data = response.json()
+            
+            if data['cod'] == 200: # cod is named for response code so 200 response code means OK
+                self.display_weather(data)
+                
+        except requests.exceptions.HTTPError: # this error is returned if status code is 400-599 (NOTE: 400-499 -> Client error responses and 500-599 -> Server error responses) -> and NOTE that this exception is found in requests module that we imported
+            pass
         
     def display_error(self, message):
         pass
