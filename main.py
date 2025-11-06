@@ -35,6 +35,13 @@ class WeatherApp(QWidget):
         
         self.setLayout(vbox)
         
+        # NOTE: Here we didn't aligned get_weather_button to center because currently it takes up the width of the window as we expand them so no need to horizontally align it
+        self.city_label.setAlignment(Qt.AlignCenter)
+        self.city_input.setAlignment(Qt.AlignCenter)
+        self.temperature_label.setAlignment(Qt.AlignCenter)
+        self.emoji_label.setAlignment(Qt.AlignCenter)
+        self.description_label.setAlignment(Qt.AlignCenter)
+        
         
 if __name__ == "__main__":
     app = QApplication(sys.argv)
