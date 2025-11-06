@@ -92,7 +92,12 @@ class WeatherApp(QWidget):
         url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}"
         
         response = requests.get(url)
+        data = response.json()
         
+        if data['cod'] == 200: # cod is named for response code so 200 response code means OK
+            self.display_weather(data)
+        else:
+            print(data)
         
     def display_error(self, message):
         pass
