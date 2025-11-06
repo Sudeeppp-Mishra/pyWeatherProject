@@ -84,6 +84,15 @@ class WeatherApp(QWidget):
                            """)
         
         self.city_input.setFixedHeight(60)
+
+    def get_weather(self):
+        pass
+    
+    def display_error(self, message):
+        pass
+    
+    def display_weather(self, data):
+        pass
         
 if __name__ == "__main__":
     app = QApplication(sys.argv)
