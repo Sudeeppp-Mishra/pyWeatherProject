@@ -1,6 +1,6 @@
 # PyProject-WeatherApp :)️
 
-A simple Python Weather App with **PyQt5** that fetches live weather data using a Weather API.
+A simple Python Weather App with Python and  **PyQt5** that fetches live weather data using the OpenWeatherMap API and displays it in a user-friendly GUI.
 
 ---
 
@@ -15,6 +15,55 @@ A simple Python Weather App with **PyQt5** that fetches live weather data using 
 ## Contributing
 
 You are free to contribute! Any help or suggestions are welcome.
+
+---
+---
+
+## Using OpenWeatherMap API
+
+### **Sign up & Get API Key**
+- Go to [https://openweathermap.org/api](https://openweathermap.org/api)
+- Sign up for a free account and get your API key.
+
+> **IMPORTANT**: API keys are sensitive and should **not** be exposed publicly. So, I stored the API key in a `.env` file for security.
+
+#### **Steps to use .env for your API key**
+
+1. **Create a .env file** in the project root:
+
+```env
+API_KEY = <Your openweathermap API key>
+```
+
+2. **Install python-dotenv** to load the .env file in Python:
+
+```sh
+pip install python-dotenv
+
+OR
+
+pip3 install python-dotenv
+``` 
+
+3. **Load the API key in your Python code**:
+
+```python
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env
+load_dotenv()
+
+API_KEY = os.getenv("API_KEY")
+```
+
+4. **Make sure .env is in .gitignore** so your key is not pushed to GitHub:
+
+```sh
+# .gitignore
+.env
+```
+
 
 ---
 
