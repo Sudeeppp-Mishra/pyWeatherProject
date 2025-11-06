@@ -84,6 +84,8 @@ class WeatherApp(QWidget):
                            """)
         
         self.city_input.setFixedHeight(60)
+        
+        self.get_weather_button.clicked.connect(self.get_weather)
 
     def get_weather(self):
         pass
