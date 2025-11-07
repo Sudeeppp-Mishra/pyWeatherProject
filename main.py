@@ -102,23 +102,23 @@ class WeatherApp(QWidget):
         except requests.exceptions.HTTPError as http_error: # this error is returned if status code is 400-599 (NOTE: 400-499 -> Client error responses and 500-599 -> Server error responses) -> and NOTE that this exception is found in requests module that we imported
             match response.status_code:
                 case 400:
-                    self.display_error("Bad Request\nPlease check your input!")
+                    self.display_error("Bad Request:\nPlease check your input!")
                 case 401:
-                    self.display_error("Unauthorized\nInvalid API key!")
+                    self.display_error("Unauthorized:\nInvalid API key!")
                 case 403:
-                    self.display_error("Forbidden\nAccess is denied!")
+                    self.display_error("Forbidden:\nAccess is denied!")
                 case 404:
-                    self.display_error("Not found\nCity not found!")
+                    self.display_error("Not found:\nCity not found!")
                 case 500:
-                    self.display_error("Internal Server Error\nPlease try again later!")
+                    self.display_error("Internal Server Error:\nPlease try again later!")
                 case 502:
-                    self.display_error("Bad Gateway\nInvalid response from the server!")
+                    self.display_error("Bad Gateway:\nInvalid response from the server!")
                 case 503:
-                    self.display_error("Service Unavailable\nServer is down!")
+                    self.display_error("Service Unavailable:\nServer is down!")
                 case 504:
-                    self.display_error("Gateway Timeout\nNo response from the server!")
+                    self.display_error("Gateway Timeout:\nNo response from the server!")
                 case _:
-                    self.display_error(f"HTTP error occurred\n{http_error}")
+                    self.display_error(f"HTTP error occurred:\n{http_error}")
                     
         except requests.exceptions.ConnectionError:
             self.display_error("Connection Error:\nCheck your internet connection!")
