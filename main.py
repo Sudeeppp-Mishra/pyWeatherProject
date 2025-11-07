@@ -120,7 +120,8 @@ class WeatherApp(QWidget):
                 case _:
                     print(f"HTTP error occurred\n{http_error}")
                     
-
+        except requests.exceptions.RequestException: # this is due to n/w problem or invalid url
+            pass
         
     def display_error(self, message):
         pass
