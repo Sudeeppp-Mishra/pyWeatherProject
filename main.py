@@ -124,7 +124,7 @@ class WeatherApp(QWidget):
             print("Connection Error:\nCheck your internet connection!")
         
         except requests.exceptions.Timeout:
-            pass
+            print("Timeout Error:\nThe request timed out!")
                     
         except requests.exceptions.TooManyRedirects:
             pass
