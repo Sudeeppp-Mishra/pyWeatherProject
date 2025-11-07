@@ -126,6 +126,9 @@ class WeatherApp(QWidget):
         except requests.exceptions.Timeout:
             pass
                     
+        except requests.exceptions.TooManyRedirects:
+            pass
+        
         except requests.exceptions.RequestException: # this is due to n/w problem or invalid url
             pass
         
