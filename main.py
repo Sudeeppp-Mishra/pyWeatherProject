@@ -144,6 +144,8 @@ class WeatherApp(QWidget):
         
         weather_description = data["weather"][0]["description"]
         
+        weather_id = data["weather"][0]["id"]
+        
         self.temperature_label.setText(f"{temperature_C:.0f}℃")
         self.description_label.setText(weather_description.title())
         
