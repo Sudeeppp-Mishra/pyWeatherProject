@@ -1,0 +1,76 @@
+ name: Build Installers
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install pyinstaller
+          pip install PySide6
+
+      - name: Build Windows EXE
+        run: |
+          pyinstaller main.py \
+            --name WeatherApp \
+            --onefile \
+            --noconsole \
+            --add-data "images;images"
+
+      - name: Upload EXE to Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/WeatherApp.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-macos:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install pyinstaller
+          pip install PySide6
+
+      - name: Build macOS APP
+        run: |
+          pyinstaller main.py \
+            --name WeatherApp \
+            --windowed \
+            --add-data "images:images"
+
+      - name: Create DMG
+        run: |
+          hdiutil create WeatherApp.dmg -srcfolder dist/WeatherApp.app -ov
+
+      - name: Upload macOS files
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/WeatherApp.app
+            WeatherApp.dmg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
