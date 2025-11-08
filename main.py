@@ -137,7 +137,7 @@ class WeatherApp(QWidget):
         self.temperature_label.setText(message)
     
     def display_weather(self, data):
-        pass
+        temperature_K = data["main"]["temp"]
         
 if __name__ == "__main__":
     app = QApplication(sys.argv)
