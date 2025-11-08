@@ -12,6 +12,15 @@ A simple Python Weather App with Python and  **PyQt5** that fetches live weather
 
 ---
 
+## UI
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="images/err.png" width="200">
+  <img src="images/ui.png" width="200">
+</div>
+
+---
+
 ## Contributing
 
 You are free to contribute! Any help or suggestions are welcome.
