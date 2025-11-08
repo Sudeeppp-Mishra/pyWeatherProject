@@ -142,6 +142,8 @@ class WeatherApp(QWidget):
         temperature_C = temperature_K - 273.15
         temperature_F = (temperature_K*9/5)-459.67
         
+        weather_description = data["weather"][0]["description"]
+        
         self.temperature_label.setText(f"{temperature_C:.0f}℃")
         
 if __name__ == "__main__":
