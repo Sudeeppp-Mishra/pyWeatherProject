@@ -36,6 +36,7 @@ class WeatherApp(QWidget):
         dark_mode_hbox.addWidget(self.mode_label)
         dark_mode_hbox.addWidget(self.mode_toggle)
         self.mode_label.setFont(QFont("Arial", 12, QFont.Bold))
+        self.mode_toggle.stateChanged.connect(self.change_mode)
         
         vbox.addLayout(dark_mode_hbox)
         
@@ -64,37 +65,43 @@ class WeatherApp(QWidget):
         
         
         self.setStyleSheet("""
-                           QLabel, QPushButton{
-                               font-family: 'Poppins', 'Roboto', 'Segoe UI', 'Arial', sans-serif;
-                           }
-                           
-                           QLabel#city_label{
-                               font-size: 40px;
-                               font-style: italic;
-                           }
-                           
-                           QLineEdit#city_input{
-                               font-size: 40px;
-                           }
-                           
-                           QPushButton#get_weather_button{
-                               font-size: 30px;
-                               font-weight: bold;
-                           }
-                           
-                           QLabel#temperature_label{
-                               font-size: 60px;
-                           }
-                           
-                           QLabel#emoji_label{
-                               font-size: 100px;
-                                   font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Arial";
-                           }
-                           
-                           QLabel#description_label{
-                               font-size: 50px;
-                           }
-                           """)
+                QWidget {
+                    background-color: hsl(229, 26%, 95%);
+                    color: black;
+                }
+                QLabel, QPushButton{
+                    font-family: 'Poppins', 'Roboto', 'Segoe UI', 'Arial', sans-serif;
+                }
+                
+                QLabel#city_label{
+                    font-size: 40px;
+                    font-style: italic;
+                }
+                
+                QLineEdit#city_input{
+                    font-size: 40px;
+                    background-color: hsl(229, 26%, 88%);
+                }
+                
+                QPushButton#get_weather_button{
+                    font-size: 30px;
+                    font-weight: bold;
+                    background-color: hsl(229, 26%, 88%)
+                }
+                
+                QLabel#temperature_label{
+                    font-size: 60px;
+                }
+                
+                QLabel#emoji_label{
+                    font-size: 100px;
+                        font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Arial";
+                }
+                
+                QLabel#description_label{
+                    font-size: 50px;
+                }
+            """)
         
         self.city_input.setFixedHeight(60)
         
@@ -188,6 +195,85 @@ class WeatherApp(QWidget):
             return "☁️"
         else:
             return ""
+        
+    def change_mode(self, value):
+        if value:  # Dark mode ON
+            self.setStyleSheet("""
+                QWidget {
+                    background-color: hsl(44, 2%, 14%);
+                    color: white;
+                }
+                QLabel, QPushButton{
+                    font-family: 'Poppins', 'Roboto', 'Segoe UI', 'Arial', sans-serif;
+                }          
+                QLabel#city_label{
+                    font-style: italic;
+                    font-size: 40px;
+                }      
+                QLineEdit#city_input{
+                    font-size: 40px;
+                    background-color: hsl(44, 2%, 20%);
+                }
+                
+                QPushButton#get_weather_button{
+                    font-size: 30px;
+                    font-weight: bold;
+                    background-color: hsl(44, 2%, 20%)
+                }
+                
+                QLabel#temperature_label{
+                    font-size: 60px;
+                }
+                
+                QLabel#emoji_label{
+                    font-size: 100px;
+                        font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Arial";
+                }
+                
+                QLabel#description_label{
+                    font-size: 50px;
+                }
+            """)
+        else:  # Light mode OFF
+            self.setStyleSheet("""
+                QWidget {
+                    background-color: hsl(229, 26%, 95%);
+                    color: black;
+                }
+                QLabel, QPushButton{
+                    font-family: 'Poppins', 'Roboto', 'Segoe UI', 'Arial', sans-serif;
+                }
+                
+                QLabel#city_label{
+                    font-size: 40px;
+                    font-style: italic;
+                }
+                
+                QLineEdit#city_input{
+                    font-size: 40px;
+                    background-color: hsl(229, 26%, 88%);
+                }
+                
+                QPushButton#get_weather_button{
+                    font-size: 30px;
+                    font-weight: bold;
+                    background-color: hsl(229, 26%, 88%)
+                }
+                
+                QLabel#temperature_label{
+                    font-size: 60px;
+                }
+                
+                QLabel#emoji_label{
+                    font-size: 100px;
+                        font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Arial";
+                }
+                
+                QLabel#description_label{
+                    font-size: 50px;
+                }
+            """)
+        
         
 if __name__ == "__main__":
     app = QApplication(sys.argv)
