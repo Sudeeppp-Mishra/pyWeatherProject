@@ -21,6 +21,7 @@ class WeatherApp(QWidget):
         self.description_label = QLabel(self)
         
         self.mode_label = QLabel("Dark Mode", self)
+        self.mode_toggle = Toggle()
         
         self.initUI()
         
