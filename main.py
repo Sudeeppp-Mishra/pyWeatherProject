@@ -5,6 +5,7 @@ import requests
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout
 from PyQt5.QtCore import Qt
 from qtwidgets import Toggle
+from PyQt5.QtGui import QFont
 
 # Load environment variables from .env
 load_dotenv()
@@ -34,6 +35,7 @@ class WeatherApp(QWidget):
         dark_mode_hbox.addStretch() # Push everything right
         dark_mode_hbox.addWidget(self.mode_label)
         dark_mode_hbox.addWidget(self.mode_toggle)
+        self.mode_label.setFont(QFont("Poppins", 12, QFont.Bold))
         
         vbox.addLayout(dark_mode_hbox)
         
