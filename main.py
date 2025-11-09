@@ -105,7 +105,8 @@ class WeatherApp(QWidget):
         
         self.city_input.setFixedHeight(60)
         
-        self.get_weather_button.clicked.connect(self.get_weather)
+        self.get_weather_button.clicked.connect(self.get_weather)        
+        self.city_input.returnPressed.connect(self.get_weather) # Enter key triggers
 
     def get_weather(self):
         city = self.city_input.text()
