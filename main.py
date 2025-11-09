@@ -20,6 +20,8 @@ class WeatherApp(QWidget):
         self.emoji_label = QLabel()
         self.description_label = QLabel(self)
         
+        self.mode_label = QLabel("Dark Mode", self)
+        
         self.initUI()
         
     def initUI(self):
