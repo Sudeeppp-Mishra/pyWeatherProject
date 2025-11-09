@@ -12,6 +12,31 @@ A simple Python Weather App with Python and  **PyQt5** that fetches live weather
 
 ---
 
+# Weather Project - Requirements
+
+This project uses PyQt5(we can also use PyQt6 or PySide6) to create a GUI weather application. Below are the requirements and dependencies needed to run the project successfully.
+
+## Python Version
+- Python 3.10 or higher
+
+## Required Packages
+The following Python packages are required:
+
+- **PyQt5** or **PyQt6** or **PySide6**  
+  Used for creating the GUI components.
+
+- **qtwidgets**  
+  Used to implement an animated toggle button (e.g., for Dark Mode).  
+
+`qtwidgets` depends on the **`qtpy`** compatibility layer.  
+So make sure to install both:
+
+```bash
+pip install qtwidgets qtpy
+```
+
+---
+
 ## UI
 
 <div style="display: flex; justify-content: space-between;">
