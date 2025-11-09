@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 import sys
 import requests
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout
 from PyQt5.QtCore import Qt
 from qtwidgets import Toggle
 
@@ -28,7 +28,13 @@ class WeatherApp(QWidget):
     def initUI(self):
         self.setWindowTitle("Weather App")
         
+        dark_mode_hbox = QHBoxLayout()
         vbox = QVBoxLayout()
+        
+        dark_mode_hbox.addWidget(self.mode_label)
+        dark_mode_hbox.addWidget(self.mode_toggle)
+        
+        vbox.addLayout(dark_mode_hbox)
         
         vbox.addWidget(self.city_label)
         vbox.addWidget(self.city_input)
