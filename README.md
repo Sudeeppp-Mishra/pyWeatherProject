@@ -40,8 +40,9 @@ pip install qtwidgets qtpy
 ## UI
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="images/err.png" width="200">
-  <img src="images/ui.png" width="200">
+  <img src="images/lightMode.png" width="200">
+  <img src="images/darkMode.png" width="200">
+  <img src="images/error.png" width="200">
 </div>
 
 ---
