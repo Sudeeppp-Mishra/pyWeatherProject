@@ -4,6 +4,7 @@ import sys
 import requests
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout
 from PyQt5.QtCore import Qt
+from qtwidgets import Toggle
 
 # Load environment variables from .env
 load_dotenv()
