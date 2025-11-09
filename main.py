@@ -31,6 +31,7 @@ class WeatherApp(QWidget):
         dark_mode_hbox = QHBoxLayout()
         vbox = QVBoxLayout()
         
+        dark_mode_hbox.addStretch() # Push everything right
         dark_mode_hbox.addWidget(self.mode_label)
         dark_mode_hbox.addWidget(self.mode_toggle)
         
