@@ -35,7 +35,7 @@ class WeatherApp(QWidget):
         dark_mode_hbox.addStretch() # Push everything right
         dark_mode_hbox.addWidget(self.mode_label)
         dark_mode_hbox.addWidget(self.mode_toggle)
-        self.mode_label.setFont(QFont("Poppins", 12, QFont.Bold))
+        self.mode_label.setFont(QFont("Arial", 12, QFont.Bold))
         
         vbox.addLayout(dark_mode_hbox)
         
