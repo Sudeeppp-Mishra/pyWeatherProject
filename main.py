@@ -235,6 +235,7 @@ class WeatherApp(QWidget):
                     font-size: 50px;
                 }
             """)
+            self.mode_label.setText("Light Mode")
         else:  # Light mode OFF
             self.setStyleSheet("""
                 QWidget {
@@ -274,6 +275,7 @@ class WeatherApp(QWidget):
                     font-size: 50px;
                 }
             """)
+            self.mode_label.setText("Dark Mode")
         
         
 if __name__ == "__main__":
